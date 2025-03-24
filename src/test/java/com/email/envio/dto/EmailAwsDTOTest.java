@@ -8,7 +8,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 public class EmailAwsDTOTest {
 
-
     @Test
     void shouldSerializeEmailAwsDto(){
         EmailAwsDTO emailDTO = new EmailAwsDTO();
@@ -17,8 +16,6 @@ public class EmailAwsDTOTest {
         emailDTO.setSender("davidhenriquesilva.si@gmail.com");
         emailDTO.setSubject("Meu consagrado com o OCI com profile");
         emailDTO.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed lorem iaculis, condimentum augue ut");
-
         Assertions.assertEquals("{\"recipient\":\"davidhenriquesilva.si@gmail.com\",\"recipientName\":\"David-O\",\"sender\":\"davidhenriquesilva.si@gmail.com\",\"subject\":\"Meu consagrado com o OCI com profile\",\"content\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed lorem iaculis, condimentum augue ut\"}", emailDTO.toJson());
-
     }
 }

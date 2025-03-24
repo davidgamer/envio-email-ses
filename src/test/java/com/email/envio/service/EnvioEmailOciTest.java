@@ -29,6 +29,7 @@ public class EnvioEmailOciTest {
         ociDTO.setSender(RandomStringUtils.random(46, true, true));
         ociDTO.setSubject(RandomStringUtils.random(121, true, true));
         ociDTO.setContent(RandomStringUtils.random(257, true, true));
+
         EnvioEmailOci envioEmailOci = new EnvioEmailOci();
         CustomFieldValidationException exception =  Assertions.assertThrows(CustomFieldValidationException.class, ()-> envioEmailOci.sendEmail(ociDTO));
         Assertions.assertEquals(ErrorResponse.INVALID_FIELD, exception.getMessage());
@@ -41,10 +42,6 @@ public class EnvioEmailOciTest {
         expected.put("recipientEmail","tamanho deve ser entre 0 e 40");
         Assertions.assertEquals(expected, exception.getDetails());
     }
-
-
-
-
 
     @Test
     void shouldSendmail(){
