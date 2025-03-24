@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 public class EmailDtoTest {
 
-
     @Test
     void shouldSerializeEmailDto(){
         EmailDTO emailDTO = new EmailDTO();

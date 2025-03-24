@@ -4,11 +4,9 @@ package com.email.envio.dto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.constraints.Size;
-import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
-@Component
 public class EmailAwsDTO implements Serializable {
 
     private  static final long serialVersionUID = 1L;

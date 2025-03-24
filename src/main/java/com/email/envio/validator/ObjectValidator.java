@@ -6,7 +6,6 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.springframework.stereotype.Component;
 
-
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
@@ -25,8 +24,6 @@ public class ObjectValidator <T>{
                     .stream()
                     .collect(Collectors.toMap(c -> c.getPropertyPath().toString(), ConstraintViolation::getMessage));
         }
-
         return Collections.emptyMap();
-
     }
 }

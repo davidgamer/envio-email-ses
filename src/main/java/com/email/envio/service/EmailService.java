@@ -14,10 +14,10 @@ import java.util.Map;
 public class EmailService {
 
     @Value("${mail.integracao}")
-    private String integracao;
+    String integracao;
 
     @Autowired
-    private Map<String, IEmailSenderStrategy> envioEmail;
+    Map<String, IEmailSenderStrategy> envioEmail;
 
     public void sendMail(EmailDTO emailDTO) {
         IEmailSenderStrategy sender = envioEmail.getOrDefault(integracao.toLowerCase(), envioEmail.get("oci"));

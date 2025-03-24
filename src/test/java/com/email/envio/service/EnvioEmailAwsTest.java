@@ -1,6 +1,5 @@
 package com.email.envio.service;
 
-import com.email.envio.dto.EmailAwsDTO;
 import com.email.envio.dto.EmailDTO;
 import com.email.envio.exceptions.CustomFieldValidationException;
 import com.email.envio.exceptions.ErrorResponse;
@@ -25,21 +24,22 @@ public class EnvioEmailAwsTest {
     @Test
     void shouldHaveValidationIssue(){
         EmailDTO awsDto = new EmailDTO();
-        awsDto.setRecipient(RandomStringUtils.random(41, true, true));
-        awsDto.setRecipientName(RandomStringUtils.random(51, true, true));
-        awsDto.setSender(RandomStringUtils.random(41, true, true));
-        awsDto.setSubject(RandomStringUtils.random(101, true, true));
-        awsDto.setContent(RandomStringUtils.random(251, true, true));
-        EnvioEmailOci envioEmailAws = new EnvioEmailOci();
+        awsDto.setRecipient(RandomStringUtils.random(46, true, true));
+        awsDto.setRecipientName(RandomStringUtils.random(61, true, true));
+        awsDto.setSender(RandomStringUtils.random(46, true, true));
+        awsDto.setSubject(RandomStringUtils.random(122, true, true));
+        awsDto.setContent(RandomStringUtils.random(257, true, true));
+        EnvioEmailAws envioEmailAws = new EnvioEmailAws();
+
         CustomFieldValidationException exception =  Assertions.assertThrows(CustomFieldValidationException.class, ()-> envioEmailAws.sendEmail(awsDto));
         Assertions.assertEquals(ErrorResponse.INVALID_FIELD, exception.getMessage());
 
         HashMap<String,String> expected = new HashMap<>();
-            expected.put("subject","tamanho deve ser entre 0 e 100");
-            expected.put("senderEmai","tamanho deve ser entre 0 e 40");
-            expected.put("recipientName","tamanho deve ser entre 0 e 50");
-            expected.put("body","tamanho deve ser entre 0 e 250");
-            expected.put("recipientEmail","tamanho deve ser entre 0 e 40");
+        expected.put("recipient","tamanho deve ser entre 0 e 45");
+        expected.put("subject","tamanho deve ser entre 0 e 120");
+        expected.put("sender","tamanho deve ser entre 0 e 45");
+        expected.put("recipientName","tamanho deve ser entre 0 e 60");
+        expected.put("content","tamanho deve ser entre 0 e 256");
         Assertions.assertEquals(expected, exception.getDetails());
     }
 

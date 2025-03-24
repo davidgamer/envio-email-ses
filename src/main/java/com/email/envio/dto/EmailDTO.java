@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Component
 public class EmailDTO implements Serializable {
 
 

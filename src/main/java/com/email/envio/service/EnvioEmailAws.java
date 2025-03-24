@@ -6,7 +6,6 @@ import com.email.envio.dto.EmailDTO;
 import com.email.envio.exceptions.CustomFieldValidationException;
 import com.email.envio.exceptions.ErrorResponse;
 import com.email.envio.validator.ObjectValidator;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 @Component("aws")
 public class EnvioEmailAws  implements  IEmailSenderStrategy{
-
 
     @Autowired
     @Qualifier("awsMailSender")
