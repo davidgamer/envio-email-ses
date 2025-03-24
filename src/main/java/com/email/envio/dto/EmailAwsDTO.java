@@ -3,23 +3,18 @@ package com.email.envio.dto;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
 @Component
-@Data
 public class EmailAwsDTO implements Serializable {
 
     private  static final long serialVersionUID = 1L;
 
-
     @Size(max = 45)
-    private String recepient;
+    private String recipient;
 
     @Size(max = 60)
     private String recipientName;
@@ -33,24 +28,12 @@ public class EmailAwsDTO implements Serializable {
     @Size(max = 256)
     private String content;
 
-
-    public EmailAwsDTO() {
+    public @Size(max = 45) String getRecipient() {
+        return recipient;
     }
 
-    public EmailAwsDTO(String recepient, String recipientName, String sender, String subject, String content) {
-        this.recepient = recepient;
-        this.recipientName = recipientName;
-        this.sender = sender;
-        this.subject = subject;
-        this.content = content;
-    }
-
-    public @Size(max = 45) String getRecepient() {
-        return recepient;
-    }
-
-    public void setRecepient(@Size(max = 45) String recepient) {
-        this.recepient = recepient;
+    public void setRecipient(@Size(max = 45) String recipient) {
+        this.recipient = recipient;
     }
 
     public @Size(max = 60) String getRecipientName() {
@@ -86,9 +69,7 @@ public class EmailAwsDTO implements Serializable {
     }
 
 
-
     public String toJson() {
-
         try{
             ObjectMapper mapper = new ObjectMapper();
             return mapper.writeValueAsString(this);

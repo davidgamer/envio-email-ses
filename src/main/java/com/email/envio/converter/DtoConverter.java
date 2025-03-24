@@ -8,19 +8,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class DtoConverter {
 
-
     public EmailAwsDTO awsConverter(EmailDTO emailDTO){
         EmailAwsDTO awsDTO = new EmailAwsDTO();
         awsDTO.setContent(emailDTO.getContent());
         awsDTO.setSender(emailDTO.getSender());
-        awsDTO.setRecepient(emailDTO.getRecipient());
+        awsDTO.setRecipient(emailDTO.getRecipient());
         awsDTO.setRecipientName(emailDTO.getRecipientName());
         awsDTO.setSubject(emailDTO.getSubject());
 
         return awsDTO;
     }
-
-
 
     public EmailOciDTO ociConverter(EmailDTO emailDTO){
         EmailOciDTO ociDTO = new EmailOciDTO();

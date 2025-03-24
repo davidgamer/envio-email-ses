@@ -16,19 +16,18 @@ public class EmailDTO implements Serializable {
     private  static final long serialVersionUID = 1L;
 
     @NotNull(message = "recepient must have a value")
-    @JsonProperty("recipient")
     private String recipient;
 
-    @JsonProperty("recipientName")
+    @NotNull(message = "recipientName must have a value")
     private String recipientName;
 
-    @JsonProperty("sender")
+    @NotNull(message = "sender must have a value")
     private String sender;
 
-    @JsonProperty("subject")
+    @NotNull(message = "subject must have a value")
     private String subject;
 
-    @JsonProperty("content")
+    @NotNull(message = "content must have a value")
     private String content;
 
     public EmailDTO(String recipient, String recipientName, String sender, String subject, String content) {
@@ -82,15 +81,12 @@ public class EmailDTO implements Serializable {
     }
 
     public String toJson() {
-
         try{
             ObjectMapper mapper = new ObjectMapper();
             return mapper.writeValueAsString(this);
-
         } catch (JsonProcessingException e){
             throw new IllegalArgumentException("Json convert error");
         }
     }
-
 
 }

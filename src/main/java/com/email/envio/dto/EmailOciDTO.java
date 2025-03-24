@@ -25,7 +25,6 @@ public class EmailOciDTO implements Serializable {
     @Size(max = 250)
     private String body;
 
-
     public @Size(max = 40) String getRecipientEmail() {
         return recipientEmail;
     }
