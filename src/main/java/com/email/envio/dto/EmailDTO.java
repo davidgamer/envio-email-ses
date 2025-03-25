@@ -11,7 +11,6 @@ import java.util.Objects;
 
 public class EmailDTO implements Serializable {
 
-
     private  static final long serialVersionUID = 1L;
 
     @NotNull(message = "recepient must have a value")
@@ -87,5 +86,4 @@ public class EmailDTO implements Serializable {
             throw new IllegalArgumentException("Json convert error");
         }
     }
-
 }

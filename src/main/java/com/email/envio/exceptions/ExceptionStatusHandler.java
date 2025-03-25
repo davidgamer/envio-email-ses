@@ -45,6 +45,4 @@ public class ExceptionStatusHandler {
     public ErrorResponse  handleUnknown( Exception ex) {
         return new ErrorResponse(ex.getMessage());
     }
-
-
 }

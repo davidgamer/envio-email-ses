@@ -12,7 +12,6 @@ public class ErrorResponse {
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Map<String, String> additionalDetails;
 
-
     public ErrorResponse(String detail) {
         this.detail = detail;
     }

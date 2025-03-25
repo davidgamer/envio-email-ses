@@ -66,7 +66,6 @@ public class EmailAwsDTO implements Serializable {
         this.content = content;
     }
 
-
     public String toJson() {
         try{
             ObjectMapper mapper = new ObjectMapper();

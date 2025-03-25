@@ -13,11 +13,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
-
 @Component("oci")
 @Primary
 public class EnvioEmailOci implements IEmailSenderStrategy {
-
 
     @Autowired
     @Qualifier("ociMailSender")

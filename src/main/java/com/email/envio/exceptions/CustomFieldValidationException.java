@@ -12,7 +12,6 @@ public class CustomFieldValidationException extends ValidationException {
         this.details = details;
     }
 
-
     public Map<String, String> getDetails() {
         return details;
     }
