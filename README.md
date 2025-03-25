@@ -9,8 +9,9 @@ Api de Envio de Email (AWS e OCI)
 
 http://localhost:8080/swagger-ui/index.html
 
-##Variáveis de ambiente para credenciais
--AWS_USERNAME
--AWS_PASSWORD
--OCI_USERNAME
--OCI_PASSWORD
+##Variáveis de ambiente para credenciais:
+
+- AWS_USERNAME
+- AWS_PASSWORD
+- OCI_USERNAME
+- OCI_PASSWORD
