@@ -3,6 +3,7 @@ package com.email.envio.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Component;
 
@@ -14,12 +15,14 @@ public class EmailDTO implements Serializable {
     private  static final long serialVersionUID = 1L;
 
     @NotNull(message = "recepient must have a value")
+    @Email
     private String recipient;
 
     @NotNull(message = "recipientName must have a value")
     private String recipientName;
 
     @NotNull(message = "sender must have a value")
+    @Email
     private String sender;
 
     @NotNull(message = "subject must have a value")
