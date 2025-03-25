@@ -1,6 +1,7 @@
 package com.email.envio.controller;
 
 import com.email.envio.dto.EmailDTO;
+import com.email.envio.dto.EmailRecordDTO;
 import com.email.envio.service.EmailService;
 import jakarta.validation.Valid;
 import jakarta.validation.ValidationException;
@@ -21,9 +22,9 @@ public class EmailController {
     private EmailService service;
 
     @PostMapping("/enviar")
-    public ResponseEntity<EmailDTO> enviar(@Valid @RequestBody EmailDTO email){
+    public ResponseEntity<EmailDTO> enviar(@Valid @RequestBody EmailRecordDTO email){
         service.sendMail(email);
-        System.out.println("\n Dados Recebidos: " + email.toJson());
+        System.out.println("\n Dados Recebidos: " + email);
         return ResponseEntity.noContent().build();
     }
 }

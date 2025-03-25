@@ -1,6 +1,7 @@
 package com.email.envio.service;
 
 import com.email.envio.dto.EmailDTO;
+import com.email.envio.dto.EmailRecordDTO;
 import com.email.envio.validator.ObjectValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,7 +20,7 @@ public class EmailService {
     @Autowired
     Map<String, IEmailSenderStrategy> envioEmail;
 
-    public void sendMail(EmailDTO emailDTO) {
+    public void sendMail(EmailRecordDTO emailDTO) {
         IEmailSenderStrategy sender = envioEmail.getOrDefault(integracao.toLowerCase(), envioEmail.get("oci"));
         sender.sendEmail(emailDTO);
     }

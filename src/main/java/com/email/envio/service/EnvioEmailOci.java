@@ -3,6 +3,7 @@ package com.email.envio.service;
 import com.email.envio.converter.DtoConverter;
 import com.email.envio.dto.EmailDTO;
 import com.email.envio.dto.EmailOciDTO;
+import com.email.envio.dto.EmailRecordDTO;
 import com.email.envio.exceptions.CustomFieldValidationException;
 import com.email.envio.exceptions.ErrorResponse;
 import com.email.envio.validator.ObjectValidator;
@@ -24,7 +25,7 @@ public class EnvioEmailOci implements IEmailSenderStrategy {
     private  ObjectValidator validator = new ObjectValidator();
 
     @Override
-    public void sendEmail(EmailDTO emailDTO) {
+    public void sendEmail(EmailRecordDTO emailDTO) {
         EmailOciDTO ociDTO = new DtoConverter().ociConverter(emailDTO);
         var violations = validator.validate(ociDTO);
         if (!violations.isEmpty()) {

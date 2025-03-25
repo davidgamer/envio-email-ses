@@ -3,29 +3,30 @@ package com.email.envio.converter;
 import com.email.envio.dto.EmailAwsDTO;
 import com.email.envio.dto.EmailDTO;
 import com.email.envio.dto.EmailOciDTO;
+import com.email.envio.dto.EmailRecordDTO;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DtoConverter {
 
-    public EmailAwsDTO awsConverter(EmailDTO emailDTO){
+    public EmailAwsDTO awsConverter(EmailRecordDTO emailDTO){
         EmailAwsDTO awsDTO = new EmailAwsDTO();
-        awsDTO.setContent(emailDTO.getContent());
-        awsDTO.setSender(emailDTO.getSender());
-        awsDTO.setRecipient(emailDTO.getRecipient());
-        awsDTO.setRecipientName(emailDTO.getRecipientName());
-        awsDTO.setSubject(emailDTO.getSubject());
+        awsDTO.setContent(emailDTO.content());
+        awsDTO.setSender(emailDTO.sender());
+        awsDTO.setRecipient(emailDTO.recipient());
+        awsDTO.setRecipientName(emailDTO.recipientName());
+        awsDTO.setSubject(emailDTO.subject());
 
         return awsDTO;
     }
 
-    public EmailOciDTO ociConverter(EmailDTO emailDTO){
+    public EmailOciDTO ociConverter(EmailRecordDTO emailDTO){
         EmailOciDTO ociDTO = new EmailOciDTO();
-        ociDTO.setBody(emailDTO.getContent());
-        ociDTO.setSenderEmail(emailDTO.getSender());
-        ociDTO.setRecipientEmail(emailDTO.getRecipient());
-        ociDTO.setRecipientName(emailDTO.getRecipientName());
-        ociDTO.setSubject(emailDTO.getSubject());
+        ociDTO.setBody(emailDTO.content());
+        ociDTO.setSenderEmail(emailDTO.sender());
+        ociDTO.setRecipientEmail(emailDTO.recipient());
+        ociDTO.setRecipientName(emailDTO.recipientName());
+        ociDTO.setSubject(emailDTO.subject());
 
         return ociDTO;
     }
